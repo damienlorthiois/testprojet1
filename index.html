@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Slider</title>
+		<link rel="stylesheet" media="screen" type="text/css" title="Exemple" href="styles.css"/>
+		<link rel="stylesheet" media="screen" type="text/css" title="Exemple" href="normalize.css"/>
+		<script src="utilities.js"></script>
+		<script src="slider.js"></script>
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+
+			<h1>Carnet d'adresse</h1>
+			<ul id="JS-contact-list">
+				<!-- liste des contacts -->
+			</ul>
+			<input type="button" class="JS-delete-contactlist" value="Supprimer la liste de contact">
+			<a href="#" class="JS-create-contact">Ajouter un contact</a>
+			<form id="JS-contact-form" class="hide">
+				<fieldset>
+					<select name="title">
+						<option>Mr</option>  
+						<option>Mme</option> 
+						<option>Mlle</option> 
+					</select>
+					<div class="clearfix">
+						<label for="name">Nom : </label>
+						<input type="text" name="name" placeholder="name">
+					</div>
+					<div class="clearfix">
+						<label for="surname">Prénom : </label>
+						<input type="text" name="surname" placeholder="surname">
+					</div>
+					<div class="clearfix">
+						<label for="tel">Numéro : </label>
+						<input type="text" name="tel" placeholder="tel">
+					</div>
+					<input type="button" class="JS-submit" value="OK">
+					<input type="button" class="JS-cancel-form" value="Annuler">
+				</fieldset>
+			</form>
+
+			<div id="JS-result-contact">
+				
+			</div>
+
+		</div>
+
+		<script>
+
+			document.addEventListener("DOMContentLoaded", function()
+			{
+				refreshAdressBook();
+
+				installEventHandlers(".JS-create-contact","click",addContact);
+
+				installEventHandlers(".JS-cancel-form","click",canceladdContact);
+
+				installEventHandlers(".JS-submit","click",saveContact);
+
+				installEventHandlers(".JS-delete-contactlist","click",deleteAdressBook);
+
+			});
+
+		</script>
+
+	</body>
+
+</html>
+
